@@ -4,7 +4,7 @@ Official website of OlChikiLang, a Santali programming language built with Ol Ch
 
 ## Live Website
 
-https://your-netlify-url.netlify.app
+https://olchikilang.netlify.app/
 
 ## Developed By
 
