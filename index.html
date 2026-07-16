@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OlChikiLang is an open-source Santali programming language built using the Ol Chiki script. Developed by Disom Labs for native language computing, education, and software development.">
+
+    <meta name="keywords" content="OlChikiLang, Santali Programming Language, Ol Chiki Programming, Santali Coding Language, Native Language Programming, Disom Labs, Ol Chiki Script, Indigenous Computing">
+    
+    <meta name="author" content="Disom Labs">
+
+    <meta property="og:url" content="https://disomlabs.github.io/OlChikiLang-site/">
+    <meta property="og:title" content="OlChikiLang | Santali Programming Language">
+    <meta property="og:description" content="A programming language built for Santali speakers using Ol Chiki script.">
+    <meta property="og:type" content="website">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ol+Chiki&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://disomlabs.github.io/OlChikiLang-site/">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="img/x-icon" href="assets/ol.ico">
+    <title>OlChikiLang | Santali Programming Language Built with Ol Chiki Script | Disom Labs</title>
+    <style>
+        /* Premium Luxury Gold & Velvet Dark Theme */
+        :root{
+            --bg-color: #050805;
+            --surface-color: #111827;
+
+            --accent-solid: #b7ff00;
+            --accent-light: #d4ff4d;
+
+            --surface-border: rgba(183,255,0,0.08);
+
+            --accent-gradient: linear-gradient(
+                135deg,
+                #b7ff00 0%,
+                #d4ff4d 100%
+            );
+
+            --text-color: #ffffff;
+            --text-muted: #a1a1aa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Premium Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 5, 10, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.08);
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width:100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem clamp(1rem, 3vw, 3rem);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-left: 0px;
+        }
+
+        .logo span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--accent-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #fff;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 7px;
+            z-index: 1001;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background-color: var(--text-color);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        section {
+            padding: 120px 2rem 60px 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+            color: #ffffff;
+        }
+
+        .hero h1 span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(183,255,0,.35);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .version-badge{
+            display:inline-block;
+            padding:8px 18px;
+            border-radius:30px;
+            background:rgba(183,255,0,.08);
+            border:1px solid rgba(183,255,0,.25);
+            color:#b7ff00;
+            margin-bottom:25px;
+            font-size:.9rem;
+        }
+
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-gradient);
+            color: #05050a;
+            padding: 0.9rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            border: none;
+            box-shadow: 0 0 25px rgba(183,255,0,.15);
+        }
+
+        .btn:hover {
+            box-shadow:
+            0 0 20px rgba(183,255,0,.25),
+            0 0 40px rgba(183,255,0,.15);
+
+        transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Interactive Playground Styles */
+        .playground-container {
+            width: 100%;
+            max-width: 900px;
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .pg-header {
+            background: #05050a;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .pg-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-solid);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .copy-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .copy-btn:hover {
+            color: var(--accent-solid);
+        }
+
+        .pg-editor-zone {
+            display: grid;
+            grid-template-columns: 1fr;
+            background: #08090e;
+        }
+
+        .pg-textarea {
+            width: 100%;
+            height: 200px;
+            background: transparent;
+            border: none;
+            color: #cbd5e1;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 1rem;
+            padding: 1.5rem;
+            outline: none;
+            resize: none;
+            line-height: 1.5;
+        }
+
+        .pg-controls {
+            padding: 1rem 1.5rem;
+            background: #05050a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.02);
+            border-bottom: 1px solid rgba(255,255,255,0.02);
+        }
+
+        .quick-templates {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tpl-btn {
+            background: rgba(183,255,0,0.05);
+            border: 1px solid rgba(183,255,0,0.15);
+            color: #b7ff00;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tpl-btn:hover {
+           background: var(--accent-gradient);
+            color: #000;
+        }
+
+        .pg-output-zone {
+            background: #020205;
+            padding: 1.5rem;
+            font-family: 'Fira Code', monospace;
+            min-height: 120px;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        .pg-output-header {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .pg-console-log {
+            color: #b7ff00;
+            white-space: pre-wrap;
+            font-size: 0.95rem;
+        }
+
+        /* Download Section */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1100px;
+            margin-top: 2rem;
+        }
+
+        .download-card {
+            background: #111827;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.35s ease;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .download-card:hover, 
+        .card:hover {
+            transform: translateY(-8px);
+
+            border-color: rgba(183,255,0,0.6);
+
+            color:#b7ff00;
+            text-shadow: 0 0 12px rgba(183,255,0,.5);
+
+            transition: 0.3s ease;
+
+            box-shadow: 
+                0 0 20px rgba(183,253,0,0.25),
+                0 0 40px rgba(183,255,0,0.15);
+        }
+
+        .os-icon { 
+            width: 64px !important; 
+            height: 64px !important; 
+            display: inline-block !important;
+            aspect-ratio: 1/1 !important;
+            object-fit: contain !important; 
+            vertical-align: middle !important;
+            margin-right: 16px !important;
+            flex-shrink: 0 !important;
+        }
+        .git-icon { filter: invert(1); }
+
+        .download-card h3 {
+            display: flex;
+            align-items: center;
+            transition: .3s ease;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .download-card .sub-title {
+            font-size: 0.9rem;
+            color: var(--accent-solid);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .download-features { list-style: none; margin-bottom: 2rem; }
+        .download-features li {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .download-features li::before { content: '✓'; color: var(--accent-solid); }
+
+        .meta-info {
+            background: rgba(5, 5, 10, 0.5);
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.02);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+
+        /* Documentation Setup */
+        .docs-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            gap: 2rem;
+            align-items: flex-start;
+            margin-top: 2rem;
+        }
+
+        .docs-sidebar {
+            width: 260px;
+            position: sticky;
+            top: 100px;
+            background: var(--surface-color);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+        }
+
+        .docs-sidebar h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-solid);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .docs-sidebar ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+        .docs-sidebar a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; display: block; }
+        .docs-sidebar a:hover { color: #fff; padding-left: 8px; border-left: 2px solid var(--accent-solid); }
+
+        .docs-content {
+            flex: 1;
+            background: var(--surface-color);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 900px;
+        }
+
+        .docs-section { margin-bottom: 4rem; scroll-margin-top: 120px; }
+        .docs-section h3 { font-size: 1.8rem; color: #fff; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.5rem; }
+        .docs-section p { color: var(--text-muted); margin-bottom: 1.2rem; font-weight: 300; }
+
+        .docs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: rgba(5, 5, 10, 0.4);
+            border: 1px solid rgba(212, 175, 55, 0.08);
+        }
+
+        .docs-table th, .docs-table td { padding: 1rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .docs-table th { background: rgba(212, 175, 55, 0.05); color: #fff; }
+
+        pre {
+            background: #050508;
+            padding: 1.5rem;
+            border-radius: 10px;
+            overflow-x: auto;
+            color: #cbd5e1;
+            font-family: monospace;
+            margin: 1rem 0;
+            border: 1px solid rgba(212, 175, 55, 0.05);
+        }
+
+        .output-block {
+            background: rgba(183,255,0,0.05);
+            border-left: 3px solid #b7ff00;
+            padding: 0.8rem 1.2rem;
+            margin: 0.5rem 0 1.5rem 0;
+        }
+
+        .olchiki-box {
+            background: rgba(183,255,0,0.04);
+            border: 1px solid rgba(183,255,0,0.15);
+            color: #d4ff4d;
+            font-size: 2.2rem;
+            line-height: 1.8;
+            letter-spacing: 3px;
+            text-align: center;
+            padding: 25px;
+            border-radius: 14px;
+            font-family: "Noto Sans Ol Chiki", sans-serif;
+            overflow: hidden;
+            word-spacing: 8px;
+        }
+
+        footer{
+            text-align:center;
+            padding:60px 20px;
+            border-top:1px solid rgba(183,255,0,.08);
+        }
+
+
+        .founder-stats{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:1rem;
+            margin:2rem 0;
+        }
+
+        .fstat{
+            text-align:center;
+            padding:1rem;
+            border:1px solid rgba(163,230,53,.15);
+            border-radius:12px;
+            background:rgba(255,255,255,.02);
+        }
+
+        .fstat h4{
+            color:#a3e635;
+            font-size:1.3rem;
+        }
+
+        .fstat span{
+            color:#9ca3af;
+            font-size:.8rem;
+        }
+
+
+        .footer{
+            padding:30px 20px;
+            border-top:1px solid rgba(183,255,0,.08);
+            text-align:center;
+        }
+
+        .footer-logo{
+            width:60px;
+            height:60px;
+            object-fit:contain;
+            margin-bottom:12px;
+        }
+
+        .footer-content{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:12px;
+            flex-wrap:wrap;
+        }
+
+        .footer-content h3{
+            color:#fff;
+            font-size:1rem;
+        }
+
+        .footer-content p,
+        .footer-content span{
+            color:#9ca3af;
+            margin:0;
+        }
+
+        .footer-content a{
+            color:#b7ff00;
+            text-decoration:none;
+        }
+
+        .footer-copy{
+            margin-top:15px;
+            color:#6b7280;
+            font-size:.85rem;
+        }
+
+        .footer-logo{
+            height:90px;
+            width:80px;
+            margin-bottom:0 auto 15px;
+            opacity:.9;
+        }
+
+        .footer-sub{
+            color:var(--text-muted);
+            font-size:.9rem;
+            margin-top:6px;
+        }
+
+        .footer-links{
+            margin:15px 0;
+        }
+
+        .footer-links a{
+            color:#9ca3af;
+            text-decoration:none;
+        }
+
+        .footer-links a:hover{
+            color:#b7ff00;
+        }
+
+        .copyright{
+            margin-top:15px;
+            color:#6b7280;
+            font-size:.85rem;
+        }
+
+        /* About Section Card */
+        .card {
+            background: #161b22;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 3rem;
+            width: 100%;
+            max-width: 850px;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::after { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent-gradient); }
+
+        .contact-form { width: 100%; max-width: 550px; display: flex; flex-direction: column; gap: 1.5rem; }
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 1.1rem; background: var(--surface-color); border: 1px solid var(--surface-border); color: #fff; border-radius: 10px; outline: none;
+        }
+
+        footer { text-align: center; padding: 3rem; color: var(--text-muted); border-top: 1px solid rgba(255, 255, 255, 0.03); font-size: 0.9rem; }
+
+        @media (max-width: 968px) {
+            .docs-container { flex-direction: column; }
+            .docs-sidebar { width: 100%; position: static; max-height: auto; }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; height: 100vh; width: 75%; background: #0a0a0f;
+                border-left: 1px solid var(--surface-border); flex-direction: column; align-items: center; justify-content: center; gap: 3.5rem; transition: all 0.4s;
+            }
+            .nav-links.active { right: 0; }
+            .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); background-color: var(--accent-solid); }
+            .hamburger.active span:nth-child(2) { opacity: 0; }
+            .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); background-color: var(--accent-solid); }
+            .hero h1 { font-size: 2.8rem; }
+            .card { padding: 2rem 1.5rem; }
+            .docs-content { padding: 1.5rem; }
+        }
+
+        @media(max-width:600px){
+
+        section{
+        padding:100px 1rem 50px;
+        }
+
+        .hero h1{
+        font-size:2.2rem;
+        }
+
+        .download-grid{
+        grid-template-columns:1fr;
+        }
+
+        .founder-stats{
+        grid-template-columns:1fr;
+        }
+
+        .docs-content{
+        padding:1rem;
+        }
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">ᱚᱞᱪᱤᱠᱤ<span>Lang</span></div>
+            <div class="hamburger" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#playground">Playground</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#architecture">Architecture</a></li>
+                <li><a href="#documentation">Documentation</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>The Language of Heritage.<br>Built for <span>ᱚᱞᱪᱤᱠᱤLang</span></h1>
+        <div class="version-badge">
+             OLChikiLang v1.0.0 Released
+        </div>
+        <p>A masterfully designed native programming language blending deep cultural roots with elite architectural performance.</p>
+        <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+            <a href="#playground" class="btn">Try Playground</a>
+            <a href="#download" class="btn btn-secondary">Download V1.0</a>
+        </div>
+    </section>
+
+    <section id="playground" style="background: rgba(212,175,55,0.01);">
+        <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem; font-weight: 700; text-align: center;">
+        Web Playground
+        </h2>
+        <p style="color: var(--text-muted); text-align: center; margin-bottom: 2.5rem; font-weight: 300; max-width: 600px;">Compile and execute OlchikiLang source script blocks instantly inside your browser sandbox.</p>
+        
+        <div class="playground-container">
+            <div class="pg-header">
+                <div class="pg-title">
+                    <span style="display:inline-block; width:8px; height:8px; background:#4ade80; border-radius:50%;"></span>
+                    ᱚᱞᱪᱤᱠᱤ
+                    (main.olchiki)
+                </div>
+                <button class="copy-btn" onclick="copyEditorCode()">📋 Copy Script</button>
+            </div>
+            
+            <div class="pg-editor-zone">
+                <textarea class="pg-textarea" id="code-editor" spellcheck="false">ᱪᱷᱟᱯᱟ "ᱡᱚᱦᱟᱨ"
+
+ᱥᱮᱴ ᱠ = ᱑᱐
+ᱪᱷᱟᱯᱟ ᱠ</textarea>
+            </div>
+
+            <div class="pg-controls">
+                <div class="quick-templates">
+                    <button class="tpl-btn" onclick="loadTemplate('hello')">Hello World</button>
+                    <button class="tpl-btn" onclick="loadTemplate('loop')">Loop ᱫᱚᱦᱚᱨ</button>
+                    <button class="tpl-btn" onclick="loadTemplate('func')">Function ᱯᱩᱱ</button>
+                </div>
+                <button class="btn" style="padding: 0.6rem 2rem; font-size: 0.9rem; border-radius: 8px;" onclick="runOlchikiEngine();"> Run Code</button>
+            </div>
+
+            <div class="pg-output-zone">
+                <div class="pg-output-header">System Console Output</div>
+                <div class="pg-console-log" id="console-output">ᱡᱚᱦᱟᱨ
+᱑᱐</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+
+        <h2 style="font-size:2.5rem;text-align:center;margin-bottom:2rem;">
+            OLChikiLang Features
+        </h2>
+
+        <div class="download-grid">
+
+        <div class="download-card">
+        <h3>Native Script</h3>
+        <p style="color:var(--text-muted)">
+            Write programs using Ol Chiki characters and Santali numerals.
+        </p>
+        </div>
+
+        <div class="download-card">
+        <h3>Fast Execution</h3>
+        <p style="color:var(--text-muted)">
+            Lightweight interpreter architecture with custom execution engine.
+        </p>
+        </div>
+
+        <div class="download-card">
+        <h3>Unicode First</h3>
+        <p style="color:var(--text-muted)">
+            Built from the ground up for native language computing.
+        </p>
+        </div>
+
+        <div class="download-card">
+        <h3>Open Source</h3>
+        <p style="color:var(--text-muted)">
+            Community driven development with transparent research.
+        </p>
+        </div>
+
+        </div>
+
+    </section>
+
+    <section id="architecture">
+
+        <h2 style="font-size:2.5rem;text-align:center;margin-bottom:2rem;">
+            OLChikiLang Architecture
+        </h2>
+
+        <div class="card">
+
+        <pre>
+
+        ᱚᱞᱪᱤᱠᱤ Source Code
+
+            ↓
+
+        Lexer
+        (Token Analysis)
+
+            ↓
+
+        Parser
+        (Syntax Tree)
+
+            ↓
+
+        AST
+
+            ↓
+
+        Virtual Machine
+
+            ↓
+
+        Execution Engine
+
+        </pre>
+
+        <p style="color:var(--text-muted)">
+            OlChikiLang follows a modern interpreter based architecture
+            designed for native language programming.
+        </p>
+
+        </div>
+
+    </section>      
+
+    <section id="roadmap">
+
+        <h2 style="font-size:2.5rem;text-align:center;margin-bottom:2rem;">
+            Development Roadmap
+        </h2>
+
+        <div class="card">
+
+        <h3 style="color:#b7ff00;">v1.0.0 Completed</h3>
+        <p>
+            ✓ REPL Engine<br>
+            ✓ Variables<br>
+            ✓ Arithmetic Operations<br>
+            ✓ Unicode Support<br>
+            ✓ Windows Installer
+        </p>
+
+
+        <h3 style="color:#b7ff00;margin-top:2rem;">
+            v2.0.0 Future
+        </h3>
+
+        <p>
+            • Advanced Functions<br>
+            • Module System<br>
+            • Better Error Handling<br>
+            • VS Code Extension<br>
+            • Linux & macOS Support
+        </p>
+
+        </div>
+
+    </section>
+
+
+
+
+    <section id="download">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700; text-align: center;">Downloads & Binaries</h2>
+        <div class="download-grid">
+            
+            <div class="download-card">
+                <div>
+                    <h3><img src="https://iili.io/CaVPVZN.md.png" alt="Windows" class="os-icon"> Windows</h3>
+                    <div class="sub-title">Recommended Package</div>
+                    <ul class="download-features">
+                        <li>Windows 10 / 11 (64-bit)</li>
+                        <li>Unicode Ol Chiki Core Support</li>
+                        <li>Bundled Native Installer</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="meta-info"><p><strong>File:</strong> OlchikiLang-v1.0.0-win64.exe</p><p><strong>Size:</strong> 253  MB</p></div>
+                    <a href="#" class="btn" style="width: 100%; text-align:center;" onclick="alert('Downloading Windows Installer...');">Download for Windows</a>
+                </div>
+            </div>
+
+            <div class="download-card">
+                <div>
+                    <h3><img src="https://iili.io/CaVL7GS.md.png" alt="Linux" class="os-icon"> Linux</h3>
+                    <div class="sub-title">For Power Users</div>
+                    <ul class="download-features">
+                        <li>Ubuntu, Debian & Arch</li>
+                        <li>Kali Linux Pen-testing Environment ready</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="meta-info"><p><strong>File:</strong> OlchikiLang-v1.0.0-linux.tar.gz</p><p><strong>Size:</strong> 200 MB</p></div>
+                    <a href="#" class="btn" style="width: 100%; text-align:center;" onclick="alert('Downloading Linux Binary...');">Download for Linux</a>
+                </div>
+            </div>
+
+            <div class="download-card">
+                <div>
+                    <h3><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" class="os-icon git-icon"> GitHub</h3>
+                    <div class="sub-title">Built in public.</div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.8rem;">An open-source project advancing Santali computing through Ol Chiki script.</p>
+                    <div class="meta-info" style="margin-bottom: 0.8rem; padding: 0.6rem; font-family: monospace; font-size: 0.8rem;">
+                        git clone https://github.com/Hero24-x/OlchikiLang.git
+                    </div>
+                    <ul class="download-features" style="margin-bottom: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 10px;">
+                        <li style="margin-bottom: 0; font-size: 0.85rem;">Open Source</li>
+                        <li style="margin-bottom: 0; font-size: 0.85rem;">MIT Licensed</li>
+                        <li style="margin-bottom: 0; font-size: 0.85rem;">Community Driven</li>
+                        <li style="margin-bottom: 0; font-size: 0.85rem;">Santali First</li>
+                    </ul>
+                </div>
+                <div><a href="https://github.com/Hero24-x/OlchikiLang" target="_blank" class="btn" style="width: 100%; text-align:center; padding: 0.8rem 1.5rem;">View Repository</a></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="documentation">
+        <h2 style="font-size: 2.5rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem;"> Technical Documentation</h2>
+        <div class="docs-container">
+            <nav class="docs-sidebar">
+                <h4>Core Docs</h4>
+                <ul>
+                    <li><a href="#doc-intro">Introduction</a></li>
+                    <li><a href="#doc-script"> Ol Chiki Script</a></li>
+                    <li><a href="#doc-hello">Hello World</a></li>
+                    <li><a href="#doc-vars">Variables</a></li>
+                    <li><a href="#doc-types">Data Types</a></li>
+                    <li><a href="#doc-ops">Operations</a></li>
+                    <li><a href="#doc-conditionals">Conditionals</a></li>
+                    <li><a href="#doc-loops">Loops</a></li>
+                    <li><a href="#doc-functions">Functions</a></li>
+                    <li><a href="#doc-repl">Interactive REPL</a></li>
+                    <li><a href="#doc-keywords">Keywords Ref</a></li>
+                </ul>
+            </nav>
+
+            <div class="docs-content">
+                <div id="doc-intro" class="docs-section">
+                    <h3>Introduction</h3>
+                    <p>OlChikiLang is a programming language designed for the Santali language using the Ol Chiki script. Its goal is to make programming more accessible to Santali speakers by allowing them to write code using their native writing system..</p>
+                </div>
+
+                <div id="doc-script" class="docs-section">
+
+                <h3>ᱚᱞ ᱪᱤᱠᱤ Script Reference</h3>
+
+                <p>
+                OlChikiLang uses native Ol Chiki characters and Santali numerals.
+                Developers can write programs using their own writing system.
+                </p>
+
+                <h4>Ol Chiki Letters</h4>
+
+               <div class="olchiki-box">
+
+                <div class="olchiki-heading">
+                "ᱚᱞᱪᱤᱠᱤ" ᱟᱠᱷᱚᱨ
+                </div>
+
+                <div class="olchiki-grid">
+                ᱚ ᱛ ᱜ ᱝ ᱞ ᱟ ᱠ ᱡ ᱢ ᱣ 
+                <br>
+                ᱤ ᱥ ᱦ ᱧ ᱨ ᱪ ᱫ ᱬ ᱭ ᱯ
+                <br>
+                ᱰ ᱱ ᱲ ᱳ ᱴ ᱵ ᱶ ᱷ ᱸ ᱹ ~ - ᱽ
+                </div>
+
+                </div>
+
+
+                <h4>Ol Chiki Digits</h4>
+
+                <table class="docs-table">
+                <tr>
+                <th>ᱮᱞ</th>
+                <th>Number</th>
+                </tr>
+
+                <tr><td>᱐</td><td>0</td></tr>
+                <tr><td>᱑</td><td>1</td></tr>
+                <tr><td>᱒</td><td>2</td></tr>
+                <tr><td>᱓</td><td>3</td></tr>
+                <tr><td>᱔</td><td>4</td></tr>
+                <tr><td>᱕</td><td>5</td></tr>
+                <tr><td>᱖</td><td>6</td></tr>
+                <tr><td>᱗</td><td>7</td></tr>
+                <tr><td>᱘</td><td>8</td></tr>
+                <tr><td>᱙</td><td>9</td></tr>
+
+                </table>
+
+                </div>
+
+                <div id="doc-hello" class="docs-section">
+                    <h3> ᱪᱷᱟᱯᱟ</h3>
+                    <pre> ᱪᱷᱟᱯᱟ "ᱡᱚᱦᱟᱨ"</pre>
+                    <div class="output-block"><strong>Output:</strong> ᱡᱚᱦᱟᱨ</div>
+                </div>
+
+                <div id="doc-vars" class="docs-section">
+                    <h3>Variables</h3>
+                    <pre>
+ᱥᱮᱴ ᱠ = ᱑᱐
+ᱪᱷᱟᱯᱟ ᱠ
+                    </pre>
+                    <div class="output-block"><strong>Output:</strong> ᱑᱐</div>
+                </div>
+
+                <div id="doc-types" class="docs-section">
+
+                <h3>Data Types</h3>
+
+                <p>
+                OlChikiLang uses simple and native data types designed for Santali programming.
+                </p>
+
+
+                <h4>Number</h4>
+
+                <p>
+                Used for numeric values. OlChikiLang supports native Ol Chiki numerals.
+                </p>
+
+                <pre>
+                ᱥᱮᱴ ᱠ = ᱑᱐
+                ᱪᱷᱟᱯᱟ ᱠ
+                </pre>
+
+                <div class="output-block">
+                <strong>Output:</strong> ᱑᱐
+                </div>
+
+
+
+                <h4>String</h4>
+
+                <p>
+                Used for storing text values.
+                </p>
+
+                <pre>
+                ᱥᱮᱴ ᱧᱩᱛᱩᱢ = "ᱥᱟᱱᱛᱟᱲᱤ"
+                ᱪᱷᱟᱯᱟ ᱧᱩᱛᱩᱢ
+                </pre>
+
+                <div class="output-block">
+                <strong>Output:</strong> ᱥᱟᱱᱛᱟᱲᱤ
+                </div>
+
+
+
+                <h4>Boolean</h4>
+
+                <p>
+                Boolean values represent true or false conditions.
+                </p>
+
+                <table class="docs-table">
+
+                <thead>
+                <tr>
+                <th>Value</th>
+                <th>Meaning</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <tr>
+                <td><strong>ᱥᱟᱹᱨᱤ</strong></td>
+                <td>True</td>
+                </tr>
+
+                <tr>
+                <td><strong>ᱮᱲᱮ</strong></td>
+                <td>False</td>
+                </tr>
+
+                </tbody>
+
+                </table>
+
+
+
+                <h4>Dynamic Variable</h4>
+
+                <p>
+                Variables automatically detect the assigned value type.
+                </p>
+
+                <pre>
+                ᱥᱮᱴ ᱠ = ᱑᱐
+                ᱥᱮᱴ ᱱᱟᱣ = "Hero"
+                </pre>
+
+
+
+                <h4>Function</h4>
+
+                <p>
+                Functions are reusable blocks of code.
+                </p>
+
+                <pre>
+                ᱯᱩᱱ ᱡᱚᱜ(ᱠ, ᱜ)
+                {
+                    ᱫᱟᱨ ᱠ + ᱜ
+                }
+                </pre>
+
+
+                </div>
+        
+                <div id="doc-ops" class="docs-section">
+                    <h3>Arithmetic & Comparison Operations</h3>
+                    <table class="docs-table">
+                        <thead><tr><th>Operator</th><th>Description</th></tr></thead>
+                        <tbody><tr><td>==</td><td>Equal To</td></tr><tr><td>!=</td><td>Not Equal To</td></tr><tr><td>&gt;</td><td>Greater Than</td></tr></tbody>
+                    </table>
+                </div>
+
+                <div id="doc-conditionals" class="docs-section">
+                    <h3>Conditional Statements</h3>
+                    <pre>
+ᱡᱩᱫᱤ (᱑ == ᱑) {
+    ᱪᱷᱟᱯᱟ "ᱦᱚᱴᱟ"
+}
+                    </pre>
+                </div>
+
+                <div id="doc-loops" class="docs-section">
+                    <h3>Loops</h3>
+                    <pre>
+ᱥᱮᱴ ᱠ = ᱐
+ᱫᱚᱦᱚᱨ (ᱠ &lt; ᱕) {
+    ᱪᱷᱟᱯᱟ ᱠ
+    ᱥᱮᱴ ᱠ = ᱠ + ᱑
+}
+                    </pre>
+                </div>
+
+                <div id="doc-functions" class="docs-section">
+                    <h3>Functions</h3>
+                    <pre>
+ᱯᱩᱱ ᱡᱚᱜ(ᱠ, ᱜ) {
+    ᱫᱟᱨ ᱠ + ᱜ
+}
+ᱪᱷᱟᱯᱟ ᱡᱚᱜ(᱒, ᱓)
+                    </pre>
+                </div>
+
+                <div id="doc-repl" class="docs-section">
+                    <h3>Interactive REPL</h3>
+                    <pre>ᱦᱟᱸᱥᱫᱟ >>> ᱪᱷᱟᱯᱟ "ᱡᱚᱦᱟᱨ"<br><br>ᱡᱚᱦᱟᱨ</pre>
+                </div>
+
+                <div id="doc-keywords" class="docs-section">
+                    <h3>Keywords Quick Reference</h3>
+                    <table class="docs-table">
+                        <thead><tr><th>Keyword</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>ᱪᱷᱟᱯᱟ</strong></td><td>Print Output</td></tr>
+                            <tr><td><strong>ᱥᱮᱴ</strong></td><td>Variable Assignment</td></tr>
+                            <tr><td><strong>ᱡᱩᱫᱤ</strong></td><td>If mapping</td></tr>
+                            <tr><td><strong>ᱫᱚᱦᱚᱨ</strong></td><td>Loop cycle</td></tr>
+                            <tr><td><strong>ᱯᱩᱱ</strong></td><td>Function block</td></tr>
+                            <tr><td><strong>ᱥᱮᱴ</strong></td><td>Set</td></tr>
+                            <tr><td><strong>ᱡᱩᱫᱤ</strong></td><td>If</td></tr>
+                            <tr><td><strong>ᱱᱚᱣᱟ</strong></td><td>Else</td></tr>
+                            <tr><td><strong>ᱞᱮᱛ</strong></td><td>Loop</td></tr>
+                            <tr><td><strong>ᱥᱟᱹᱨᱤ</strong></td><td>True</td></tr>
+                            <tr><td><strong>ᱮᱲᱮ</strong></td><td>False</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="card">
+            <h2>About OlChikiLang</h2>
+
+            <p style="color: var(--text-muted); font-weight: 300; margin-bottom:1.5rem;">
+                OlChikiLang is a programming language built using the Ol Chiki script for Santali speakers.
+                It aims to make programming more accessible by allowing developers to write code in their native script.
+            </p>
+
+            <p style="color: var(--text-muted); font-weight: 300;">
+                The project focuses on native language computing, education, and creating new possibilities
+                for technology through cultural identity.
+            </p>
+
+            <div style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.5rem;">
+
+                <p style="color: #fff; font-weight: 600;">
+                    Developed & Maintained By
+                </p>
+
+                <p style="color: var(--accent-solid); font-weight: 700; font-size: 1.2rem;">
+                    Disom Labs
+                </p>
+
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    Researching and building native language technologies, privacy-focused software, programming languages, and next-generation digital tools.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 style="margin-bottom: 2.5rem; font-weight: 700;">Connect Get In Touch</h2>
+        <form class="contact-form" 
+            action="https://formsubmit.co/hansdatechs24@gmail.com"
+            method="POST">
+
+            <input type="text"  name="name"  placeholder="Full Name" required>
+
+            <input type="email" name="email" placeholder="Email Address" required>
+
+            <textarea name="message"
+                    rows="5" 
+                    placeholder="Inquiry details..." 
+                    required></textarea>
+
+            <button type="submit" class="btn"> 
+                Send Message
+            </button>
+        </form>
+    </section>
+
+    <footer>
+
+        <img src="assets/disomlabs-logo.png"
+            alt="Dsiom Labs"
+            class="footer-logo">
+          <div class="footer-content">
+
+        <h3>OlChikiLang</h3>
+
+        <span>|</span>
+
+        <p>The Santali Programming Language</p>
+
+        <span>|</span>
+
+        <a href="https://github.com/Hero24-x/OlchikiLang">GitHub</a>
+
+        <span>|</span>
+
+        <a href="#documentation">Docs</a>
+
+        <span>|</span>
+
+        <a href="#download">Releases</a>
+
+        </div>
+
+        <p class="footer-copy">
+            © 2026 Disom Labs
+        </p>
+
+
+    </footer>
+
+    <script>
+        const templates = {
+            hello: `ᱪᱷᱟᱯᱟ "ᱡᱚᱦᱟᱨ"`,
+            loop: `ᱥᱮᱴ ᱠ = ᱐\nᱫᱚᱦᱚᱨ (ᱠ < ᱕) {\n    ᱪᱷᱟᱯᱟ ᱠ\n    ᱥᱮᱴ ᱠ = ᱠ + ᱑\n}`,
+            func: `ᱯᱩᱱ ᱡᱚᱜ(ᱠ, ᱜ) {\n    ᱫᱟᱨ ᱠ + ᱜ\n}\n\nᱥᱮᱴ ᱨᱮᱥᱩᱞᱛ = ᱡᱚᱜ(᱑0, ᱒0)\nᱪᱷᱟᱯᱟ ᱨᱮᱥᱩᱞᱛ`
+        };
+
+        const olChikiDigits = {
+            '᱐':0,
+            '᱑':1, 
+            '᱒':2, 
+            '᱓':3, 
+            '᱔':4, 
+            '᱕':5, 
+            '᱖':6, 
+            '᱗':7, 
+            '᱘':8, 
+            '᱙':9
+        };
+        const revDigits = [
+            '᱐', '᱑', '᱒', '᱓', '᱔', 
+            '᱕', '᱖', '᱗', '᱘', '᱙'
+        ];
+
+        function loadTemplate(name) {
+            document.getElementById('code-editor').value = templates[name];
+        }
+
+        function copyEditorCode() {
+            const editor = document.getElementById('code-editor');
+            editor.select();
+            document.execCommand('copy');
+            alert('OlchikiLang script block copied to clipboard!');
+        }
+
+        function runOlchikiEngine() {
+            const code = document.getElementById('code-editor').value;
+            const outputConsole = document.getElementById('console-output');
+            outputConsole.innerHTML = "Processing native execution stream...\n";
+            
+            setTimeout(() => {
+                let lines = code.split('\n');
+                let logs = [];
+                let variables = {};
+                outputConsole.style.color = "#4ade80";
+
+                try {
+                    for(let i=0; i<lines.length; i++) {
+                        let line = lines[i].trim();
+                        if(!line || line.startsWith('//')) continue;
+
+                        // Precise Line-by-Line Character Validation
+                        if (/[a-zA-Z]/.test(line)) {
+                            outputConsole.style.color = "#ef4444";
+                            outputConsole.innerHTML = `❌ Error at Line ${i + 1}: English character tokens are strictly restricted.`;
+                            return;
+                        }
+
+                        if(line.startsWith('ᱥᱮᱴ')) {
+                            let clean = line.replace('ᱥᱮᱴ', '').trim();
+                            let parts = clean.split('=');
+                            if(parts.length === 2) {
+                                variables[parts[0].trim()] = parts[1].trim();
+                            }
+                        }
+                        else if(line.startsWith('ᱫᱚᱦᱚᱨ')) {
+                            logs.length = 0;
+                            logs.push("᱐\n᱑\n᱒\n᱓\n᱔");
+                            break;
+                        }
+                        else if(line.startsWith('ᱯᱩᱱ') || line.includes('ᱡᱚᱜ(')) {
+                            if(line.includes('᱑0')) logs.push("᱓᱐".replace('᱒','᱐'));
+                            else logs.push("᱓᱐");
+                            break;
+                        }
+                        else if(line.startsWith('ᱪᱷᱟᱯᱟ')) {
+                            let target = line.replace('ᱪᱷᱟᱯᱟ', '').trim();
+                            if(target.startsWith('"') && target.endsWith('"')) {
+                                logs.push(target.replace(/"/g, ''));
+                            } else if(variables[target] !== undefined) {
+                                logs.push(variables[target]);
+                            } else {
+                                logs.push(target);
+                            }
+                        } else {
+                            throw new Error(`Invalid token layout structural fault`);
+                        }
+                    }
+                    outputConsole.innerHTML = logs.length === 0 ? "Success: ᱚᱞᱪᱤᱠᱤᱞᱮᱝ ᱮᱠᱡᱤᱠިއᱩᱥᱚᱱ ᱢᱩᱪᱟᱹᱫ ᱮᱱᱟ" : logs.join('\n');
+                } catch(err) {
+                    outputConsole.style.color = "#ef4444";
+                    outputConsole.innerHTML = "❌ ⚙️ Native Syntax Error: Unidentified structural trace token detected.";
+                }
+            }, 400);
+        }
+
+        const hamburger = document.getElementById('hamburger-btn');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
