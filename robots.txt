@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://olchikilang.netlify.app/
+Sitemap: https://olchikilang.netlify.app/sitemap.xml
