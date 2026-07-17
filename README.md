@@ -10,7 +10,7 @@
 
 ## 🌐 Official Website
 
-https://disomlabs.netlify.app
+https://olchikilang.netlify.app/
 
 ---
 
@@ -61,7 +61,7 @@ Projects include:
 
 ## 🌍 Website
 
-https://disomlabs.netlify.app
+https://hansdatechs.netlify.app/
 
 ---
 
