@@ -1,93 +1,86 @@
 # OlChikiLang
 
-> A modern programming language for the Santali community, built with the Ol Chiki script.
+> Santali Programming Language for the Ol Chiki Script
 
-![Version](https://img.shields.io/badge/version-v1.0-8CFF00?style=for-the-badge)
-![Status](https://img.shields.io/badge/status-active-00C853?style=for-the-badge)
-![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
+OlChikiLang is a programming language developed by **Disom Labs** for the Santali language using the **Ol Chiki** script. It aims to make programming more accessible to Santali speakers by enabling coding in their native writing system.
+---
+![Version](https://img.shields.io/badge/version-1.0-blue)
+![Status](https://img.shields.io/badge/status-active-green)
+![Language](https://img.shields.io/badge/language-Santali-orange)
+![Script](https://img.shields.io/badge/script-Ol%20Chiki-red)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 ---
+## Features
 
-## 🌐 Official Website
+* Native Ol Chiki syntax
+* Ol Chiki numeral support (᱐-᱙)
+* Interactive REPL
+* Variables and expressions
+* Arithmetic operations
+* Santali-friendly programming environment
+* Open-source project
 
-https://olchikilang.netlify.app/
+## Example
 
----
+```text
+ᱥᱮᱴ ᱮ = ᱕
+ᱥᱮᱴ ᱵ = ᱓
 
-## 🚀 About
+ᱚᱞ ᱠᱚ ᱮ + ᱵ
+```
 
-**OlChikiLang** is an open-source programming language designed specifically for the **Santali language** using the **Ol Chiki script**.
+Output:
 
-Our mission is to bridge indigenous language and modern software development by providing a simple, powerful, and developer-friendly programming language.
+```text
+᱘
+```
 
-> **Preserving Language. Powering the Future.**
+## Vision
 
----
+OlChikiLang was created to bridge the gap between indigenous languages and modern computing. The project promotes Santali language technology and encourages programming education through native-language tools.
 
-## ✨ Features
+## Roadmap
 
-- 🟢 Native Ol Chiki Syntax
-- ⚡ Beginner Friendly
-- 🌍 Cross Platform
-- 🔓 Open Source
-- 💻 Modern Compiler Architecture
-- 🚀 Fast & Lightweight
-- 📚 Easy to Learn
-- ❤️ Community Driven
+### Current
 
----
+* REPL
+* Variables
+* Arithmetic Operations
+* Ol Chiki Number Support
 
-## 🎯 Vision
+### Upcoming
 
-Our vision is to empower Santali speakers with modern programming tools while preserving their linguistic and cultural identity.
+* Functions
+* Conditions (if/else)
+* Loops
+* Modules
+* Package Manager
+* IDE Support
+* Compiler Improvements
 
----
+## Project Status
 
-## 🏛 Organization
+🚧 Active Development
 
-Developed and maintained by **Disom Labs**
+OlChikiLang is currently under development and new features are being added continuously.
 
-Building the next generation of technology for the Santali ecosystem.
+## Documentation
 
-Projects include:
+Official documentation is available within the project repository and will expand with future releases.
 
-- OlChikiLang
-- Santali AI
-- ETHIX-OS
-- Developer Tools
-- Educational Resources
+## Contributing
 
----
+Contributions, bug reports, feature requests, and suggestions are welcome.
 
-## 🌍 Website
+## Developed By
 
-https://hansdatechs.netlify.app/
+### Disom Labs
 
----
+Building Technology Beyond Language Barriers.
 
-## 🤝 Contributing
+**Founder & Lead Developer:** Shibnath Hansda
 
-We welcome developers, designers, translators, and community members.
+## License
 
-Feel free to:
-
-- Report bugs
-- Suggest new features
-- Submit pull requests
-- Improve documentation
-
-Every contribution helps grow the Santali technology ecosystem.
-
----
-
-## 📜 License
-
-This project is released under the **MIT License**.
-
----
-
-## ❤️ Built by
-
-**Disom Labs**
-
-*Building Technology for Indigenous Innovation.*
+MIT License
