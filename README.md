@@ -75,7 +75,7 @@ Contributions, bug reports, feature requests, and suggestions are welcome.
 
 ## Developed By
 
-### Hansda Techs
+### HansdaTechs
 
 Building Technology Beyond Language Barriers.
 
